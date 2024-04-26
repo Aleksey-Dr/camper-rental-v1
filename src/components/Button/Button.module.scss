@@ -1,0 +1,24 @@
+@use 'styles/variables';
+
+.btn {
+    width: 173px;
+    height: 56px;
+
+    padding: 16px 60px;
+    background-color: #E44848;
+    border: none;
+    border-radius: 28px;
+
+    font-family: variables.$primary-font-family;
+    font-weight: 500;
+    font-size: 16px;
+    color: #ffffff;
+
+    transition: background-color 250ms variables.$timing-function;
+
+    &:hover {
+        background-color: #D84343;
+
+        transition: background-color 250ms variables.$timing-function;
+    }
+}

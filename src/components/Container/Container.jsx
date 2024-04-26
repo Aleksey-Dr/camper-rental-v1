@@ -1,5 +1,9 @@
-const Container = () => {
+import css from './Conainer.module.scss';
+
+const Container = ({ children }) => {
     return (
-        <div></div>
+        <div className={css.container}>{ children }</div>
     );
 };
+
+export default Container;

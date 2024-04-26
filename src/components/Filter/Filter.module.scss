@@ -1,0 +1,33 @@
+@use 'styles/variables';
+
+.filter {
+    margin-top: 32px;
+
+    &-title {
+        font-size: 16px;
+        font-weight: 400;
+        color: rgba(16, 24, 40, 0.6);
+    }
+
+    &-subtitle {
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    &-equipment {
+        margin-top: 14px;
+    }
+
+    &-type {
+        margin-top: 32px;
+        margin-bottom: 64px;
+    }
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px 10px;
+    
+        margin-top: 48px;
+    }
+}

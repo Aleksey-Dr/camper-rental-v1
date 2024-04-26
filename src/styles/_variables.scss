@@ -1,0 +1,30 @@
+// ================== BREAKPOINTS ==================
+    // Mobile
+        $breakpoint-mobile-maxw: 767px;
+    // Tablet
+        $breakpoint-tablet-minw: 768px;
+        $breakpoint-tablet-maxw: 1311px;
+    // Desktop
+        $breakpoint-desktop-minw: 1312px;
+// ================== /BREAKPOINTS ==================
+
+// ================== COLORS ==================
+    $primary-font-color: #101828;
+    $pressed-state-color: #404BBF;
+    $primary-blue-color: #2E2F42;
+    $text-description-color: #434455;
+    $white-background-color: #ffffff;
+    $modal-background-color: #fcfcfc;
+    $secondary-white-color: #E7E9FC;
+    $text-light-color: #F4F4FD;
+    $icon-gray-color: #8E8F99;
+    $success-messages-color: #31D0AA;
+// ================== /COLORS ==================
+
+// ================== FONT-FAMILY ==================
+    $primary-font-family: 'Roboto', sans-serif;
+// ================== /FONT-FAMILY ==================
+
+// ================== TIMING ==================
+    $timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+// ================== /TIMING ==================
