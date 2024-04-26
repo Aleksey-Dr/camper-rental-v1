@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "title": "Mavericks",
+        "reviews": "4.4(2 Reviews)",
+        "description": "Embrace simplicity and freedom with the Mavericks panel truck, an ideal choice for solo travelers or couples seeking a compact and efficient way to explore the open roads.",
+        "img": "https://ftp.goit.study/img/campers-test-task/1-1.webp"
+    },
+    {
+        "id": 2,
+        "title": "Kuga Camper",
+        "reviews": "4.2(10 Reviews)",
+        "description": "The pictures shown here are example vehicles of the respective.",
+        "img": "https://ftp.goit.study/img/campers-test-task/2-1.webp"
+    }
+]

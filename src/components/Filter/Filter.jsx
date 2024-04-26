@@ -16,6 +16,7 @@ const Filter = () => {
                 <ul className={css['filter-list']}>
                     {filterEquipment.map(item =>
                         <FilterItem
+                            key={item.id}
                             width={32}
                             height={32}
                             href={`${icons}${item.href}`}
@@ -29,6 +30,7 @@ const Filter = () => {
                 <ul className={css['filter-list']}>
                     {filterType.map(item =>
                         <FilterItem
+                            key={item.id}
                             width={40}
                             height={28}
                             href={`${icons}${item.href}`}

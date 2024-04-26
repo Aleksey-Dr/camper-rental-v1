@@ -1,0 +1,51 @@
+@use 'styles/variables';
+
+.card {
+    display: flex;
+
+    width: 888px;
+    height: 358px;
+
+    padding: 24px;
+
+    border: 1px solid rgba(16, 24, 40, 0.2);
+    border-radius: 20px;
+
+    &-img {
+        width: 290px;
+        height: 310px;
+
+        object-fit: cover;
+
+        border-radius: 10px;
+    }
+
+    &-information {
+        margin-left: 24px;
+    }
+
+    &-icon {
+        &-star {
+            margin-right: 4px;
+        
+            fill: #FFC531;
+            stroke: #FFC531;
+        }
+
+        &-location {
+            margin-left: 16px;
+            margin-right: 4px;
+
+            fill: #ffffff;
+            stroke: variables.$primary-font-color
+        }
+    }
+
+    &-title {
+        margin-bottom: 8px;
+    
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.25;
+    }
+}

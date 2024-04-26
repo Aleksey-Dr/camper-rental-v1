@@ -1,16 +1,16 @@
 [
     {
-        "id": 1,
+        "id": 6,
         "href": "#icon-van",
         "description": "Van"
     },
     {
-        "id": 2,
+        "id": 7,
         "href": "#icon-fully",
         "description": "Fully Integrated"
     },
     {
-        "id": 3,
+        "id": 8,
         "href": "#icon-alcove",
         "description": "Alcove"
     }
