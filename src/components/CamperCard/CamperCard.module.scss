@@ -23,6 +23,27 @@
     &-information {
         margin-left: 24px;
     }
+    
+    &-header {
+        display: flex;
+
+        width: 526px;
+    }
+
+    &-title {
+        margin-bottom: 8px;
+        margin-right: auto;
+
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+    &-price {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 1.25;
+    }
 
     &-icon {
         &-star {
@@ -41,11 +62,31 @@
         }
     }
 
-    &-title {
-        margin-bottom: 8px;
-    
-        font-weight: 600;
-        font-size: 24px;
-        line-height: 1.25;
+    &-description {
+        height: 20px;
+        margin-top: 24px;
+
+        overflow: hidden
+    }
+
+    &-equipment {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+
+        margin-top: 24px;
+        margin-bottom: 24px;
+
+        &-item {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            height: 44px;
+            padding: 12px 18px;
+
+            border-radius: 100px;
+            background-color: #F2F4F7;
+        }
     }
 }
