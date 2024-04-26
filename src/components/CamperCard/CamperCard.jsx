@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Button from 'components/Button';
 
 import icons from 'images/icons.svg';
@@ -5,6 +7,9 @@ import css from './CamperCard.module.scss';
 
 const CamperCard = ({ img, title, price, rating, reviews, description, details }) => {
     const equipment = Object.keys(details);
+
+    const [noOfElement, setnoOfElement] = useState(6);
+    const itemsInCard = equipment.slice(0, noOfElement);
 
     return (
         <div className={css.card}>
@@ -28,7 +33,7 @@ const CamperCard = ({ img, title, price, rating, reviews, description, details }
                 </span>
                 <p className={css['card-description']}>{ description }</p>
                 <ul className={css['card-equipment']}>
-                    {equipment.map(item =>
+                    {itemsInCard.map(item =>
                         <li key={item} className={css['card-equipment-item']}>
                             <svg width='20' height='20'>
                                 <use></use>

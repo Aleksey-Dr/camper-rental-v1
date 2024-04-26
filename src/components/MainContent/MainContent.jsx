@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import Loader from 'components/Loader';
@@ -10,6 +10,11 @@ import { selectInitial, selectCampers, selectFilter } from '../../redux/selector
 import css from './MainContent.module.scss';
 
 const MainContent = () => {
+    const [noOfElement, setnoOfElement] = useState(4);
+    const loadMore = () => {
+        setnoOfElement(noOfElement + noOfElement);
+    };
+
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -21,16 +26,18 @@ const MainContent = () => {
     const { isLoading, error } = useSelector(selectInitial);
 
     const normalizedFilter = filter.toLowerCase();
-    const filterCampers = campers.filter(contact =>
-        contact.name.toLowerCase().includes(normalizedFilter),
+    const filterCampers = campers.filter(camper =>
+        camper.name.toLowerCase().includes(normalizedFilter),
     );
+
+    const cardsOnPage = filterCampers.slice(0, noOfElement);
 
     return (
         <div className={css.content}>
             {isLoading && <Loader />}
             {error && <p><b>Error: </b>{error}</p>}
             <ul className={css['content-list']}>
-                {filterCampers.map(camper => 
+                {cardsOnPage.map(camper =>
                     <CamperCard
                         key={camper._id}
                         img={camper.gallery[0]}
@@ -43,6 +50,12 @@ const MainContent = () => {
                     />
                 )}
             </ul>
+            <button
+                onClick={() => loadMore()}
+                className={css['content-btn']}
+            >
+                Load more
+            </button>
         </div>
     );
 };
