@@ -50,12 +50,14 @@ const MainContent = () => {
                     />
                 )}
             </ul>
-            <button
-                onClick={() => loadMore()}
-                className={css['content-btn']}
-            >
-                Load more
-            </button>
+            {noOfElement <= filterCampers.length &&
+                <button
+                    onClick={() => loadMore()}
+                    className={css['content-btn']}
+                >
+                    Load more
+                </button>
+            }
         </div>
     );
 };

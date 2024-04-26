@@ -9,7 +9,17 @@ const CamperCard = ({ img, title, price, rating, reviews, description, details }
     const equipment = Object.keys(details);
 
     const [noOfElement, setnoOfElement] = useState(6);
-    const itemsInCard = equipment.slice(0, noOfElement);
+    const [currentFirstElement, setcurrentFirst] = useState(0);
+    const showOthers = () => {
+        setcurrentFirst(currentFirstElement + 6);
+        setnoOfElement(noOfElement + noOfElement);
+        console.log(currentFirstElement);
+        console.log(noOfElement);
+    };
+    const itemsInCard = equipment.slice(currentFirstElement, noOfElement);
+
+    console.log(currentFirstElement);
+    console.log(noOfElement);
 
     return (
         <div className={css.card}>
@@ -32,16 +42,28 @@ const CamperCard = ({ img, title, price, rating, reviews, description, details }
                     Kyiv, Ukraine
                 </span>
                 <p className={css['card-description']}>{ description }</p>
-                <ul className={css['card-equipment']}>
-                    {itemsInCard.map(item =>
-                        <li key={item} className={css['card-equipment-item']}>
+                <div className={css['card-equipment']}>
+                    <ul className={css['card-equipment-list']}>
+                        {itemsInCard.map(item =>
+                            <li key={item} className={css['card-equipment-item']}>
+                                <svg width='20' height='20'>
+                                    <use></use>
+                                </svg>
+                                <span>{item}</span>
+                            </li>
+                        )}
+                    </ul>
+                    {noOfElement <= equipment.length &&
+                        <button
+                            onClick={() => showOthers()}
+                            className={css['card-equipment-btn']}
+                        >
                             <svg width='20' height='20'>
-                                <use></use>
+                                <use href={`${icons}#icon-arrow-right`}></use>
                             </svg>
-                            <span>{item}</span>
-                        </li>
-                    )}
-                </ul>
+                        </button>
+                    }
+                </div>
                 <Button title={'Show more'}/>
             </div>
         </div>

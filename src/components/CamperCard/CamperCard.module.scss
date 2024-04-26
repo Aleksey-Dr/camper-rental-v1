@@ -71,11 +71,19 @@
 
     &-equipment {
         display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
+        align-items: center;
+
+        height: 96px;
 
         margin-top: 24px;
         margin-bottom: 24px;
+
+        &-list {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            gap: 8px;
+        }
 
         &-item {
             display: flex;
@@ -87,6 +95,19 @@
 
             border-radius: 100px;
             background-color: #F2F4F7;
+        }
+
+        &-btn {
+            width: 40px;
+            height: 40px;
+
+            padding: 0;
+            margin-left: auto;
+
+            border: none;
+            background-color: #ffffff;
+
+            cursor: pointer;
         }
     }
 }

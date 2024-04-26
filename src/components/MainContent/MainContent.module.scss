@@ -1,9 +1,37 @@
+@use 'styles/variables';
+
 .content {
+    display: flex;
+    flex-direction: column;
     padding: 24px 0 24px 64px;
 
     &-list {
         display: flex;
         flex-direction: column;
         gap: 32px;
+    }
+
+    &-btn {
+        width: 145px;
+        height: 56px;
+
+        margin: auto;
+        margin-top: 50px;
+
+        border: solid 1px rgba(71, 84, 103, 0.2);
+        border-radius: 200px;
+        background-color: #ffffff;
+
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.5;
+
+        transition: border-color 250ms variables.$timing-function;
+
+        &:hover {
+            border-color: #E44848;
+
+            transition: border-color 250ms variables.$timing-function;
+        }
     }
 }
