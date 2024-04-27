@@ -71,7 +71,7 @@
 
     &-equipment {
         display: flex;
-        align-items: center;
+        align-items: flex-start;
 
         height: 96px;
 
@@ -95,6 +95,13 @@
 
             border-radius: 100px;
             background-color: #F2F4F7;
+        }
+
+        &-buttons {
+            display: flex;
+            flex-direction: column;
+            height: 96px;
+            margin-left: auto;
         }
 
         &-btn {

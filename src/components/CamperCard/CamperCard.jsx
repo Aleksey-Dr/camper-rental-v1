@@ -18,20 +18,29 @@ const CamperCard = ({
 
     const equipment = Object.keys(details);
 
-    const [noOfElement, setNoOfElement] = useState(6);
+    const [currentEndElement, setCurrentEndElement] = useState(6);
     const [currentFirstElement, setCurrentFirst] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
 
-    const showOthers = () => {
-        setCurrentFirst(currentFirstElement + 6);
-        setNoOfElement(noOfElement + noOfElement);
+    const toggleLeft = () => {
+        if(currentEndElement <= equipment.length) {
+            setCurrentFirst(currentFirstElement + 6);
+            setCurrentEndElement(currentEndElement + 6);
+        }
+    };
+
+    const toggleRight = () => {
+        if(currentEndElement > 6) {
+            setCurrentFirst(currentFirstElement - 6);
+            setCurrentEndElement(currentEndElement - 6);
+        }
     };
 
     const toggleModalWindow = () => {
         setIsOpen(!isOpen);
     };
 
-    const itemsInCard = equipment.slice(currentFirstElement, noOfElement);
+    const itemsInCard = equipment.slice(currentFirstElement, currentEndElement);
 
     return (
         <>
@@ -77,16 +86,28 @@ const CamperCard = ({
                                 </li>
                             ))}
                         </ul>
-                        {noOfElement <= equipment.length && (
+                        <div className={css['card-equipment-buttons']}>
                             <button
-                                onClick={() => showOthers()}
+                                onClick={() => toggleLeft()}
                                 className={css['card-equipment-btn']}
                             >
-                                <svg width="20" height="20">
+                                <svg width="20" height="20" style={{
+                                    fill: currentEndElement > equipment.length && 'rgba(16, 24, 40, 0.2)'
+                                }}>
                                     <use href={`${icons}#icon-arrow-right`}></use>
                                 </svg>
                             </button>
-                        )}
+                            <button
+                                onClick={() => toggleRight()}
+                                className={css['card-equipment-btn']}
+                            >
+                                <svg width="20" height="20" style={{
+                                    fill: currentEndElement <= 6 && 'rgba(16, 24, 40, 0.2)'
+                                }}>
+                                    <use href={`${icons}#icon-arrow-left`}></use>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                     <Button onClick={toggleModalWindow} title={'Show more'} />
                 </div>
