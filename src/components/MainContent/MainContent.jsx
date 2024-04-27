@@ -10,9 +10,9 @@ import { selectInitial, selectCampers, selectFilter } from '../../redux/selector
 import css from './MainContent.module.scss';
 
 const MainContent = () => {
-    const [noOfElement, setnoOfElement] = useState(4);
+    const [noOfElement, setNoOfElement] = useState(4);
     const loadMore = () => {
-        setnoOfElement(noOfElement + noOfElement);
+        setNoOfElement(noOfElement + noOfElement);
     };
 
     const dispatch = useDispatch();
@@ -40,7 +40,7 @@ const MainContent = () => {
                 {cardsOnPage.map(camper =>
                     <CamperCard
                         key={camper._id}
-                        img={camper.gallery[0]}
+                        img={camper.gallery}
                         title={camper.name}
                         price={camper.price}
                         rating={camper.rating}

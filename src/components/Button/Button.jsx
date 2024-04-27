@@ -1,8 +1,13 @@
 import css from './Button.module.scss';
 
-const Button = ({ title }) => {
+const Button = ({ title, onClick }) => {
     return (
-        <button className={css.btn}>{ title }</button>
+        <button
+            onClick={onClick}
+            className={css.btn}
+        >
+            { title }
+        </button>
     );
 };
 

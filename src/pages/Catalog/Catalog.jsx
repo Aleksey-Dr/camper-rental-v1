@@ -1,6 +1,5 @@
 import MainContent from 'components/MainContent';
 import SideBar from 'components/SideBar';
-// import css from './Catalog.module.scss';
 
 import css from './Catalog.module.scss';
 
