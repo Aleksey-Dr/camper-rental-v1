@@ -120,6 +120,7 @@ const CamperCard = ({
                     price={price}
                     img={img}
                     description={description}
+                    equipment={equipment}
                 />
             }
         </>

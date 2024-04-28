@@ -1,3 +1,5 @@
+@use 'styles/variables';
+
 .visually-hidden {
     position: absolute;
     width: 1px;
@@ -47,5 +49,5 @@
 }
 
 .item-checkbox:checked + .item-label {
-    border: solid 1px #E44848;
+    border: solid 1px variables.$active-color;;
 }

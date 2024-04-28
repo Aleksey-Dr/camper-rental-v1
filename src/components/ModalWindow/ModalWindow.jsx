@@ -1,6 +1,9 @@
+import Features from 'components/Features';
+
 import icons from 'images/icons.svg';
 
 import css from './ModalWindow.module.scss';
+import { NavLink } from 'react-router-dom';
 
 const ModalWindow = ({
     isOpen,
@@ -10,7 +13,8 @@ const ModalWindow = ({
     reviews,
     price,
     img,
-    description
+    description,
+    equipment
 }) => {
 
     return (
@@ -55,18 +59,35 @@ const ModalWindow = ({
                     Kyiv, Ukraine
                 </span>
                 <span className={css['card-price']}>&#8364;{price}</span>
-                <ul className={css['card-gallery']}>
-                    <li>
-                        <img src={img[0]} alt="Camper" className={css['card-img']} />
-                    </li>
-                    <li>
-                        <img src={img[1]} alt="Camper" className={css['card-img']} />
-                    </li>
-                    <li>
-                        <img src={img[2]} alt="Camper" className={css['card-img']} />
-                    </li>
-                </ul>
-                <p className={css['card-description']}>{description}</p>
+                <div className={css['modal-window-scroll']}>
+                    <ul className={css['card-gallery']}>
+                        <li>
+                            <img src={img[0]} alt="Camper" className={css['card-img']} />
+                        </li>
+                        <li>
+                            <img src={img[1]} alt="Camper" className={css['card-img']} />
+                        </li>
+                        <li>
+                            <img src={img[2]} alt="Camper" className={css['card-img']} />
+                        </li>
+                    </ul>
+                    <p className={css['card-description']}>{description}</p>
+                    <nav className={css.navigation}>
+                        <ul className={css['navigation-list']}>
+                            <li>
+                                <NavLink className={`${css['navigation-link']} ${css.current}`}>
+                                    Features
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink className={css['navigation-link']}>
+                                    Reviews
+                                </NavLink>
+                            </li>
+                        </ul>
+                    </nav>
+                    <Features equipment={equipment} />
+                </div>
             </div>
         </div>
     );

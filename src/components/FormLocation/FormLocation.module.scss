@@ -31,7 +31,7 @@
         &::placeholder {
             font-size: 16px;
             line-height: 1.25;
-            color: variables.$primary-font-color;
+            color: variables.$primary-color;
         }
     }
 
@@ -41,6 +41,6 @@
         right: 90%;
 
         fill: #ffffff;
-        stroke: variables.$primary-font-color;
+        stroke: variables.$primary-color;
     }
 }

@@ -58,7 +58,7 @@
     &-icon {
         &-heart {
             fill: #ffffff;
-            stroke: variables.$primary-font-color;
+            stroke: variables.$primary-color;
         }
 
         &-star {
@@ -73,7 +73,7 @@
             margin-right: 4px;
 
             fill: #ffffff;
-            stroke: variables.$primary-font-color;
+            stroke: variables.$primary-color;
         }
     }
 
