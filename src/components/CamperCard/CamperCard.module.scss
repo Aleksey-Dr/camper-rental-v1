@@ -96,25 +96,6 @@
         margin-top: 24px;
         margin-bottom: 24px;
 
-        &-list {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: 8px;
-        }
-
-        &-item {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            height: 44px;
-            padding: 12px 18px;
-
-            border-radius: 100px;
-            background-color: #F2F4F7;
-        }
-
         &-buttons {
             display: flex;
             flex-direction: column;

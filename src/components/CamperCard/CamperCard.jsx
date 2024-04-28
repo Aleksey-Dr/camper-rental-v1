@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Button from 'components/Button';
+import EquipmentList from 'components/EquipmentList';
 import ModalWindow from 'components/ModalWindow';
 
 import icons from 'images/icons.svg';
@@ -18,9 +19,9 @@ const CamperCard = ({
 
     const equipment = Object.keys(details);
 
-    const [currentEndElement, setCurrentEndElement] = useState(6);
-    const [currentFirstElement, setCurrentFirst] = useState(0);
     const [isOpen, setIsOpen] = useState(false);
+    const [currentFirstElement, setCurrentFirst] = useState(0);
+    const [currentEndElement, setCurrentEndElement] = useState(6);
 
     const toggleLeft = () => {
         if(currentEndElement <= equipment.length) {
@@ -82,19 +83,7 @@ const CamperCard = ({
                     </span>
                     <p className={css['card-description']}>{description}</p>
                     <div className={css['card-equipment']}>
-                        <ul className={css['card-equipment-list']}>
-                            {itemsInCard.map(item => (
-                                <li
-                                    key={item}
-                                    className={css['card-equipment-item']}
-                                >
-                                    <svg width="20" height="20">
-                                        <use></use>
-                                    </svg>
-                                    <span>{item}</span>
-                                </li>
-                            ))}
-                        </ul>
+                        <EquipmentList items={itemsInCard} />
                         <div className={css['card-equipment-buttons']}>
                             <button
                                 onClick={() => toggleLeft()}
