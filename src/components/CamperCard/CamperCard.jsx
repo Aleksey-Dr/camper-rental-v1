@@ -50,6 +50,15 @@ const CamperCard = ({
                     <div className={css['card-header']}>
                         <h2 className={css['card-title']}>{title}</h2>
                         <span className={css['card-price']}>&#8364;{price}</span>
+                        <button className={css['card-favorite-btn']}>
+                            <svg
+                                width="24"
+                                height="24"
+                                className={css['card-icon-heart']}
+                            >
+                                <use href={`${icons}#icon-heart`}></use>
+                            </svg>
+                        </button>
                     </div>
                     <span className={css['card-reviews']}>
                         <svg

@@ -26,6 +26,7 @@
     
     &-header {
         display: flex;
+        align-items: center;
 
         width: 526px;
     }
@@ -45,7 +46,21 @@
         line-height: 1.25;
     }
 
+    &-favorite-btn {
+        border: none;
+        background-color: #ffffff;
+
+        margin-left: 10px;
+
+        cursor: pointer;
+    }
+
     &-icon {
+        &-heart {
+            fill: #ffffff;
+            stroke: variables.$primary-font-color;
+        }
+
         &-star {
             margin-right: 4px;
         
@@ -65,6 +80,9 @@
     &-description {
         height: 20px;
         margin-top: 24px;
+
+        line-height: 1.5;
+        color: #475467;
 
         overflow: hidden
     }
