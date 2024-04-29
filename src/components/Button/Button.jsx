@@ -4,6 +4,7 @@ const Button = ({ title, onClick }) => {
     return (
         <button
             onClick={onClick}
+            type='button'
             className={css.btn}
         >
             { title }

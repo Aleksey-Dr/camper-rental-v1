@@ -1,6 +1,7 @@
 import EquipmentList from 'components/EquipmentList';
 
 import css from './Features.module.scss';
+import FormBookNow from 'components/FormBookNow';
 
 const Features = ({ equipment, form, length, width, height, tank, consumption }) => {
     return (
@@ -36,6 +37,9 @@ const Features = ({ equipment, form, length, width, height, tank, consumption })
                         </li>
                     </ul>
                 </div>
+            </div>
+            <div className={css['features-form']}>
+                <FormBookNow />
             </div>
         </div>
     );

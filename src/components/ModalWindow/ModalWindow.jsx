@@ -33,7 +33,11 @@ const ModalWindow = ({
             <div className={css['modal-window']}>
                 <div className={css['card-header']}>
                     <h2 className={css['card-title']}>{title}</h2>
-                    <button onClick={onClick} className={css['modal-btn']}>
+                    <button
+                        onClick={onClick}
+                        type="button"
+                        className={css['modal-btn']}
+                    >
                         <svg
                             width="32"
                             height="32"

@@ -22,7 +22,6 @@ const CamperCard = ({
     description,
     details,
 }) => {
-
     const equipment = Object.keys(details);
 
     const [isOpen, setIsOpen] = useState(false);
@@ -30,14 +29,14 @@ const CamperCard = ({
     const [currentEndElement, setCurrentEndElement] = useState(6);
 
     const toggleLeft = () => {
-        if(currentEndElement <= equipment.length) {
+        if (currentEndElement <= equipment.length) {
             setCurrentFirst(currentFirstElement + 6);
             setCurrentEndElement(currentEndElement + 6);
         }
     };
 
     const toggleRight = () => {
-        if(currentEndElement > 6) {
+        if (currentEndElement > 6) {
             setCurrentFirst(currentFirstElement - 6);
             setCurrentEndElement(currentEndElement - 6);
         }
@@ -56,8 +55,13 @@ const CamperCard = ({
                 <div className={css['card-information']}>
                     <div className={css['card-header']}>
                         <h2 className={css['card-title']}>{title}</h2>
-                        <span className={css['card-price']}>&#8364;{price}</span>
-                        <button className={css['card-favorite-btn']}>
+                        <span className={css['card-price']}>
+                            &#8364;{price}
+                        </span>
+                        <button
+                            type="button"
+                            className={css['card-favorite-btn']}
+                        >
                             <svg
                                 width="24"
                                 height="24"
@@ -93,22 +97,41 @@ const CamperCard = ({
                         <div className={css['card-equipment-buttons']}>
                             <button
                                 onClick={() => toggleLeft()}
+                                type="button"
                                 className={css['card-equipment-btn']}
                             >
-                                <svg width="20" height="20" style={{
-                                    fill: currentEndElement > equipment.length && 'rgba(16, 24, 40, 0.2)'
-                                }}>
-                                    <use href={`${icons}#icon-arrow-right`}></use>
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    style={{
+                                        fill:
+                                            currentEndElement >
+                                                equipment.length &&
+                                            'rgba(16, 24, 40, 0.2)',
+                                    }}
+                                >
+                                    <use
+                                        href={`${icons}#icon-arrow-right`}
+                                    ></use>
                                 </svg>
                             </button>
                             <button
                                 onClick={() => toggleRight()}
+                                type="button"
                                 className={css['card-equipment-btn']}
                             >
-                                <svg width="20" height="20" style={{
-                                    fill: currentEndElement <= 6 && 'rgba(16, 24, 40, 0.2)'
-                                }}>
-                                    <use href={`${icons}#icon-arrow-left`}></use>
+                                <svg
+                                    width="20"
+                                    height="20"
+                                    style={{
+                                        fill:
+                                            currentEndElement <= 6 &&
+                                            'rgba(16, 24, 40, 0.2)',
+                                    }}
+                                >
+                                    <use
+                                        href={`${icons}#icon-arrow-left`}
+                                    ></use>
                                 </svg>
                             </button>
                         </div>
@@ -116,10 +139,10 @@ const CamperCard = ({
                     <Button onClick={toggleModalWindow} title={'Show more'} />
                 </div>
             </div>
-            {isOpen &&
+            {isOpen && (
                 <ModalWindow
                     onClick={toggleModalWindow}
-                    isOpen={isOpen} 
+                    isOpen={isOpen}
                     title={title}
                     rating={rating}
                     form={form}
@@ -134,7 +157,7 @@ const CamperCard = ({
                     description={description}
                     equipment={equipment}
                 />
-            }
+            )}
         </>
     );
 };
