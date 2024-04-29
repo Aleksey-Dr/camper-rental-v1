@@ -43,6 +43,12 @@ const MainContent = () => {
                         img={camper.gallery}
                         title={camper.name}
                         price={camper.price}
+                        form={camper.form}
+                        length={camper.length}
+                        width={camper.width}
+                        height={camper.height}
+                        tank={camper.tank}
+                        consumption={camper.consumption}
                         rating={camper.rating}
                         reviews={camper.reviews.length}
                         description={camper.description}

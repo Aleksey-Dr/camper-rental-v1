@@ -77,6 +77,16 @@
         }
     }
 
+    &-reviews {
+        line-height: 1.5;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+    }
+
+    &-location {
+        line-height: 1.5;
+    }
+
     &-description {
         height: 20px;
         margin-top: 24px;
@@ -93,8 +103,8 @@
 
         height: 96px;
 
-        margin-top: 24px;
-        margin-bottom: 24px;
+        margin-top: 26px;
+        margin-bottom: 26px;
 
         &-buttons {
             display: flex;

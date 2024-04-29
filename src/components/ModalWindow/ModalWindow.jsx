@@ -10,13 +10,18 @@ const ModalWindow = ({
     onClick,
     title,
     rating,
+    form,
+    length,
+    width,
+    height,
+    tank,
+    consumption,
     reviews,
     price,
     img,
     description,
-    equipment
+    equipment,
 }) => {
-
     return (
         <div
             className={
@@ -62,20 +67,34 @@ const ModalWindow = ({
                 <div className={css['modal-window-scroll']}>
                     <ul className={css['card-gallery']}>
                         <li>
-                            <img src={img[0]} alt="Camper" className={css['card-img']} />
+                            <img
+                                src={img[0]}
+                                alt="Camper"
+                                className={css['card-img']}
+                            />
                         </li>
                         <li>
-                            <img src={img[1]} alt="Camper" className={css['card-img']} />
+                            <img
+                                src={img[1]}
+                                alt="Camper"
+                                className={css['card-img']}
+                            />
                         </li>
                         <li>
-                            <img src={img[2]} alt="Camper" className={css['card-img']} />
+                            <img
+                                src={img[2]}
+                                alt="Camper"
+                                className={css['card-img']}
+                            />
                         </li>
                     </ul>
                     <p className={css['card-description']}>{description}</p>
                     <nav className={css.navigation}>
                         <ul className={css['navigation-list']}>
                             <li>
-                                <NavLink className={`${css['navigation-link']} ${css.current}`}>
+                                <NavLink
+                                    className={`${css['navigation-link']} ${css.current}`}
+                                >
                                     Features
                                 </NavLink>
                             </li>
@@ -86,7 +105,15 @@ const ModalWindow = ({
                             </li>
                         </ul>
                     </nav>
-                    <Features equipment={equipment} />
+                    <Features
+                        form={form}
+                        length={length}
+                        width={width}
+                        height={height}
+                        tank={tank}
+                        consumption={consumption}
+                        equipment={equipment}
+                    />
                 </div>
             </div>
         </div>

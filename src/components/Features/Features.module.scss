@@ -1,6 +1,40 @@
 .features {
     &-information {
         width: 430px;
-        height: 530px;
+        height: 500px;
+
+        margin-top: 44px;
+    }
+
+    &-details {
+        margin-top: 44px;
+
+        &-title {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 1.2;
+        }
+
+        &-list {
+            margin-top: 48px;
+        }
+
+        &-item {
+            display: flex;
+
+            width: 430px;
+
+            font-weight: 500;
+            font-size: 18px;
+            line-height: 1.33;
+
+            &:not(first-child) {
+                margin-top: 14px;
+            }
+        }
+
+        &-value {
+            margin-left: auto;
+        }
     }
 }

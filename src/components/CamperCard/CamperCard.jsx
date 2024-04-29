@@ -12,6 +12,12 @@ const CamperCard = ({
     title,
     price,
     rating,
+    form,
+    length,
+    width,
+    height,
+    tank,
+    consumption,
     reviews,
     description,
     details,
@@ -116,6 +122,12 @@ const CamperCard = ({
                     isOpen={isOpen} 
                     title={title}
                     rating={rating}
+                    form={form}
+                    length={length}
+                    width={width}
+                    height={height}
+                    tank={tank}
+                    consumption={consumption}
                     reviews={reviews}
                     price={price}
                     img={img}
