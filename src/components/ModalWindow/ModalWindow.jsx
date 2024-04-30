@@ -1,41 +1,37 @@
-import Features from 'components/Features';
+import { useEffect } from 'react';
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { fetchCampers } from '../../redux/operations';
+import { selectCampers } from '../../redux/selectors';
 
 import icons from 'images/icons.svg';
 
 import css from './ModalWindow.module.scss';
-import { NavLink } from 'react-router-dom';
 
-const ModalWindow = ({
-    isOpen,
-    onClick,
-    title,
-    rating,
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
-    reviews,
-    price,
-    img,
-    description,
-    equipment,
-}) => {
+const ModalWindow = () => {
+    const {camperId} = useParams();
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCampers());
+    }, [dispatch]);
+
+    const campers = useSelector(selectCampers);
+
+    const camperInfo = campers.find(camper => camper._id === camperId);
+    const img = camperInfo.gallery;
+
     return (
         <div
-            className={
-                isOpen
-                    ? `${css['modal-backdrop']}`
-                    : `${css['modal-backdrop']} ${css['is-hidden']}`
-            }
+            className={css['modal-backdrop']}
         >
             <div className={css['modal-window']}>
                 <div className={css['card-header']}>
-                    <h2 className={css['card-title']}>{title}</h2>
-                    <button
-                        onClick={onClick}
-                        type="button"
+                    <h2 className={css['card-title']}>{camperInfo.name}</h2>
+                    <Link
+                        to='/catalog'
                         className={css['modal-btn']}
                     >
                         <svg
@@ -45,7 +41,7 @@ const ModalWindow = ({
                         >
                             <use href={`${icons}#icon-cross`}></use>
                         </svg>
-                    </button>
+                    </Link>
                 </div>
                 <span className={css['card-reviews']}>
                     <svg
@@ -55,7 +51,7 @@ const ModalWindow = ({
                     >
                         <use href={`${icons}#icon-star`}></use>
                     </svg>
-                    {rating}({reviews} Reviews)
+                    {camperInfo.rating}({camperInfo.reviews.length} Reviews)
                 </span>
                 <span className={css['card-location']}>
                     <svg
@@ -67,7 +63,7 @@ const ModalWindow = ({
                     </svg>
                     Kyiv, Ukraine
                 </span>
-                <span className={css['card-price']}>&#8364;{price}</span>
+                <span className={css['card-price']}>&#8364;{camperInfo.price}</span>
                 <div className={css['modal-window-scroll']}>
                     <ul className={css['card-gallery']}>
                         <li>
@@ -92,32 +88,28 @@ const ModalWindow = ({
                             />
                         </li>
                     </ul>
-                    <p className={css['card-description']}>{description}</p>
+                    <p className={css['card-description']}>{camperInfo.description}</p>
                     <nav className={css.navigation}>
                         <ul className={css['navigation-list']}>
                             <li>
                                 <NavLink
-                                    className={`${css['navigation-link']} ${css.current}`}
+                                    to='features'
+                                    className={css['navigation-link']}
                                 >
                                     Features
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink className={css['navigation-link']}>
+                                <NavLink
+                                    to='reviews'
+                                    className={css['navigation-link']}
+                                >
                                     Reviews
                                 </NavLink>
                             </li>
                         </ul>
                     </nav>
-                    <Features
-                        form={form}
-                        length={length}
-                        width={width}
-                        height={height}
-                        tank={tank}
-                        consumption={consumption}
-                        equipment={equipment}
-                    />
+                    <Outlet />
                 </div>
             </div>
         </div>

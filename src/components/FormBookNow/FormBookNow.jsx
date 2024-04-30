@@ -46,7 +46,7 @@ const FormBookNow = () => {
             <div className={css['form-wrapper-textarea']}>
                 <textarea
                     type='text'
-                    name='comment'
+                    id='comment'
                     placeholder=' '
                     className={css['form-textarea']}
                 />

@@ -1,9 +1,29 @@
-import EquipmentList from 'components/EquipmentList';
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
-import css from './Features.module.scss';
+import EquipmentList from 'components/EquipmentList';
 import FormBookNow from 'components/FormBookNow';
 
-const Features = ({ equipment, form, length, width, height, tank, consumption }) => {
+import { fetchCampers } from "../../redux/operations";
+import { selectCampers } from "../../redux/selectors";
+
+import css from './Features.module.scss';
+
+const Features = () => {
+    const { camperId } = useParams();
+
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchCampers());
+    }, [dispatch]);
+
+    const campers = useSelector(selectCampers);
+
+    const camperInfo = campers.find(camper => camper._id === camperId);
+    const equipment = Object.keys(camperInfo.details);
+
     return (
         <div className={css.features}>
             <div className={css['features-information']}>
@@ -13,27 +33,27 @@ const Features = ({ equipment, form, length, width, height, tank, consumption })
                     <ul className={css['features-details-list']}>
                         <li className={css['features-details-item']}>
                             Form
-                            <span className={css['features-details-value']}>{form}</span>
+                            <span className={css['features-details-value']}>{camperInfo.form}</span>
                         </li>
                         <li className={css['features-details-item']}>
                             Length
-                            <span className={css['features-details-value']}>{length}</span>
+                            <span className={css['features-details-value']}>{camperInfo.length}</span>
                         </li>
                         <li className={css['features-details-item']}>
                             Width
-                            <span className={css['features-details-value']}>{width}</span>
+                            <span className={css['features-details-value']}>{camperInfo.width}</span>
                         </li>
                         <li className={css['features-details-item']}>
                             Height
-                            <span className={css['features-details-value']}>{height}</span>
+                            <span className={css['features-details-value']}>{camperInfo.height}</span>
                         </li>
                         <li className={css['features-details-item']}>
                             Tank
-                            <span className={css['features-details-value']}>{tank}</span>
+                            <span className={css['features-details-value']}>{camperInfo.tank}</span>
                         </li>
                         <li className={css['features-details-item']}>
                             Consumption
-                            <span className={css['features-details-value']}>{consumption}</span>
+                            <span className={css['features-details-value']}>{camperInfo.consumption}</span>
                         </li>
                     </ul>
                 </div>

@@ -1,8 +1,8 @@
 import { useState } from 'react';
+import { Outlet } from 'react-router-dom';
 
-import Button from 'components/Button';
+import LinkButton from 'components/LinkButton';
 import EquipmentList from 'components/EquipmentList';
-import ModalWindow from 'components/ModalWindow';
 
 import icons from 'images/icons.svg';
 import css from './CamperCard.module.scss';
@@ -12,19 +12,13 @@ const CamperCard = ({
     title,
     price,
     rating,
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
     reviews,
     description,
     details,
+    id
 }) => {
     const equipment = Object.keys(details);
 
-    const [isOpen, setIsOpen] = useState(false);
     const [currentFirstElement, setCurrentFirst] = useState(0);
     const [currentEndElement, setCurrentEndElement] = useState(6);
 
@@ -42,16 +36,12 @@ const CamperCard = ({
         }
     };
 
-    const toggleModalWindow = () => {
-        setIsOpen(!isOpen);
-    };
-
     const itemsInCard = equipment.slice(currentFirstElement, currentEndElement);
 
     return (
         <>
             <div className={css.card}>
-                <img src={img[0]} alt="Camper" className={css['card-img']} />
+                <img src={img} alt="Camper" className={css['card-img']} />
                 <div className={css['card-information']}>
                     <div className={css['card-header']}>
                         <h2 className={css['card-title']}>{title}</h2>
@@ -136,28 +126,10 @@ const CamperCard = ({
                             </button>
                         </div>
                     </div>
-                    <Button onClick={toggleModalWindow} title={'Show more'} />
+                    <LinkButton path={`${id}/features`} title={'Show more'} />
                 </div>
             </div>
-            {isOpen && (
-                <ModalWindow
-                    onClick={toggleModalWindow}
-                    isOpen={isOpen}
-                    title={title}
-                    rating={rating}
-                    form={form}
-                    length={length}
-                    width={width}
-                    height={height}
-                    tank={tank}
-                    consumption={consumption}
-                    reviews={reviews}
-                    price={price}
-                    img={img}
-                    description={description}
-                    equipment={equipment}
-                />
-            )}
+            <Outlet />
         </>
     );
 };

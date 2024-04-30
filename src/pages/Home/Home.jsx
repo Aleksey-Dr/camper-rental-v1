@@ -12,7 +12,6 @@ const Home = () => {
             <div className={css.wrapper}>
                 <img width='680' src={IMAGES.sunAndBus} alt="Bus under the Sun" />
                 <NavLink to='/catalog' className={css['nav-link']}>Catalog</NavLink>
-                <img width='300' src={IMAGES.waves} alt="Waves" className={css.img}  />
             </div>
         </Section>
     );

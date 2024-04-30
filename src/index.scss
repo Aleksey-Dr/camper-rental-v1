@@ -52,3 +52,16 @@ img {
 button {
     color: currentColor;
 }
+
+.active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -25px;
+
+    width: 100%;
+    height: 4px;
+    flex-shrink: 0;
+
+    background-color: variables.$active-color;
+}

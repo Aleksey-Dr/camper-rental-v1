@@ -1,22 +1,20 @@
 @use 'styles/variables';
 
-.wrapper {
+.link {
     display: flex;
+    justify-content: center;
     align-items: center;
-    flex-direction: column;
-
-    padding: 32px 0;
-}
-
-.nav-link {
     width: 173px;
     height: 56px;
 
-    padding: 16px 60px;
+    padding: 16px 44px;
     background-color: #E44848;
+    border: none;
     border-radius: 28px;
 
+    font-family: variables.$primary-font-family;
     font-weight: 500;
+    font-size: 16px;
     color: #ffffff;
 
     transition: background-color 250ms variables.$timing-function;
